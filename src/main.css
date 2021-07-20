@@ -6,10 +6,14 @@ body, html {
     height: 100vw;
     width: 100%;
     margin: 0;
-    background: black;
+    background: #333;
 }
 
 .cc-card {
     max-height: 50vw;
     text-overflow: ellipsis;
+    background: #1a1919;
+    @apply focus-within:bg-black hover:bg-black;
+    @apply text-white select-none py-3 border-red-600 border;
+    @apply overflow-hidden px-2 mx-2 my-2 cursor-pointer;
 }

@@ -9,10 +9,6 @@ const {
 
 let win;
 
-ipcMain.on('cc-write', (event, args) => {
-    clipboard.writeText(args)
-})
-
 const createWindow = () => {
     win = new BrowserWindow({
         width: 200,
@@ -27,13 +23,21 @@ const createWindow = () => {
     win.setMenu(null);
 }
 
+ipcMain.on('cc-write', (event, args) => {
+    clipboard.writeText(args)
+})
+
+ipcMain.on('cc-close', () => {
+    win.hide()
+})
+
 
 app.whenReady().then(() => {
     createWindow()
-    
+
     let cache;
     let items = []
-    
+
     setInterval(() => {
         const clip = clipboard.readText()
         if (cache !== clip) {
@@ -41,7 +45,7 @@ app.whenReady().then(() => {
         }
         cache = clip
     }, 1000)
-    
+
     win.on('blur', () => win.hide())
 
     globalShortcut.register('Alt+V', () => {
