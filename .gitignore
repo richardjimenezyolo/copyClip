@@ -2,3 +2,4 @@ www/*
 !www/index.html
 /node_modules
 .idea
+build/
