@@ -6,7 +6,8 @@ const App: FC = () => {
     const [items, setItems] = useState([] as string[]);
 
     ipcRenderer.on('cc-read', (evt, arg) => {
-        setItems([...items, arg])
+        setItems(arg)
+        console.log('requested');
     })
 
     return (

@@ -24,26 +24,31 @@ const createWindow = () => {
         }
     })
     win.loadFile('www/index.html')
+    win.setMenu(null);
 }
+
 
 app.whenReady().then(() => {
     createWindow()
-
+    
     let cache;
-
+    let items = []
+    
     setInterval(() => {
-        if (cache !== clipboard.readText()) {
-            win.webContents.send('cc-read', clipboard.readText())
+        const clip = clipboard.readText()
+        if (cache !== clip) {
+            items.push(clip)
         }
-        cache = clipboard.readText()
+        cache = clip
     }, 1000)
-
+    
     win.on('blur', () => win.hide())
 
     globalShortcut.register('Alt+V', () => {
         const mousePosition = screen.getCursorScreenPoint()
         win.setPosition(mousePosition.x, mousePosition.y)
         win.show()
+        win.webContents.send('cc-read', items)
     })
 
 })
