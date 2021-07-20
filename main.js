@@ -1,4 +1,11 @@
-const {app, BrowserWindow, clipboard, ipcMain, globalShortcut} = require('electron')
+const {
+    app,
+    BrowserWindow,
+    clipboard,
+    ipcMain,
+    globalShortcut,
+    screen
+} = require('electron')
 
 let win;
 
@@ -34,6 +41,8 @@ app.whenReady().then(() => {
     win.on('blur', () => win.hide())
 
     globalShortcut.register('Alt+V', () => {
+        const mousePosition = screen.getCursorScreenPoint()
+        win.setPosition(mousePosition.x, mousePosition.y)
         win.show()
     })
 

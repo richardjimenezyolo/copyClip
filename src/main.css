@@ -8,3 +8,8 @@ body, html {
     margin: 0;
     background: black;
 }
+
+.cc-card {
+    max-height: 50vw;
+    text-overflow: ellipsis;
+}

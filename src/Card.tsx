@@ -13,7 +13,7 @@ const Card: FC<CardProps> = (props) => {
     return (
         <div
             onClick={() => copy(props.children)}
-            className="text-white py-3 border-red-600 border px-2 mx-2 my-2 bg-gray-800 cursor-pointer"
+            className="cc-card text-white py-3 border-red-600 border overflow-hidden px-2 mx-2 my-2 bg-gray-800 cursor-pointer"
         >
             {props.children}
         </div>
