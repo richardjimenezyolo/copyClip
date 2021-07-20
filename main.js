@@ -33,7 +33,7 @@ app.whenReady().then(() => {
 
     win.on('blur', () => win.hide())
 
-    globalShortcut.register('Alt+C', () => {
+    globalShortcut.register('Alt+V', () => {
         win.show()
     })
 
