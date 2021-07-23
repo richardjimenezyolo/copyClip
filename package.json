@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "dev": "webpack --watch --mode=development & npm start",
-    "build": "electron-packager . copyClip --out build"
+    "build": "electron-packager . copyClip --out build --overwrite"
   },
   "keywords": [],
   "author": "",

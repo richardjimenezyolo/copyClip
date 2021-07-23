@@ -10,6 +10,13 @@ const App: FC = () => {
         console.log('requested');
     })
 
+    document.addEventListener('keyup', (ev) => {
+        console.log(ev)
+        if (ev.key === 'q' && ev.ctrlKey) {
+            ipcRenderer.send('cc-quit')
+        }
+    })
+
     return (
         <>
             <div className="main">
