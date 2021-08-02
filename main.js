@@ -20,7 +20,7 @@ const createWindow = () => {
         }
     })
     win.loadFile('www/index.html')
-    // win.setMenu(null)
+    win.setMenu(null)
 }
 
 ipcMain.on('cc-write', (event, args) => {
@@ -55,8 +55,8 @@ app.whenReady().then(() => {
         win.webContents.send('cc-read', items)
     })
 
-    ipcMain.on('cc-quit', () => {
-        win.quit()
+    ipcMain.on('cc-hide', () => {
+        win.hide()
     })
 
 })

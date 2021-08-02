@@ -15,6 +15,10 @@ const App: FC = () => {
         if (ev.key === 'q' && ev.ctrlKey) {
             ipcRenderer.send('cc-quit')
         }
+
+        if (ev.key === 'Escape') {
+            ipcRenderer.send('cc-hide')
+        }
     })
 
     return (
