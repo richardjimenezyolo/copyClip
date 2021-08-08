@@ -21,7 +21,6 @@ const createWindow = () => {
     })
     win.loadFile('www/index.html')
     win.setMenu(null)
-
 }
 
 ipcMain.on('cc-write', (event, args) => {
